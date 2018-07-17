@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Fetch all available values</title>
+</head>
+<body>
+<p><a href="webapi/myVms/getAvailable">Get Available VMs</a>
+<p><input type="button" onclick=loadDoc() value="Submit"><br/>
+<p id="available"></p>
+<p><input type="button" onclick=window.open("ServiceRequest.html","_self") value="Request A VM"><br/>
+<script>
+
+getAvailable=function(){
+	document.getElementById("available").innerHTML ="hello world inner";
+}
+function loadDoc() {
+
+	 var  xmlDoc, txt, x, i;
+	 var xhttp = new XMLHttpRequest();
+	  
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState==4&&this.status == 200) {
+
+	    	 var myArr =JSON.parse(this.responseText);
+	    	 txt = "<h1>Available Vms are:</h1>";
+	    	 for (i = 0; i < myArr.length; i++) {
+	    		 var t=myArr[i];
+	    	    txt = txt +"("+i+")"+" id:"+t.id+" "+t.hostname+" "+t.version+" inuse:"+t.inUse+"<br>";
+	    	  }
+	    	  document.getElementById("available").innerHTML = txt;
+	    	  }
+	  };
+	  xhttp.open("GET", "webapi/myVms/getAvailable",true);
+	  xhttp.setRequestHeader("Content-type", "application/json");
+	//  xhttp.setRequestHeader("Accept", "application/xml");
+	  xhttp.send();
+	  
+	 // document.getElementById("demo2").innerHTML = "Done2";
+	  /*
+	  xhttp.open("GET", "webapi/myVms/getAvailable");
+	  xhttp.setRequestHeader("Content-type", "application/json");
+	  xhttp.setRequestHeader("Accept", "application/json");
+	  xhttp.send();
+	  var response = JSON.parse(xhttp.responseText);
+	 // var response = JSON.parse(xhttp.responseJSON);
+	 // console.log("response:"+response);
+	  var responseText=JSON.stringify(response);
+	 document.getElementById("available").innerHTML = "Done2"+responseText;
+	 */
+	// getAvailable();
+	 //document.getElementById("available").innerHTML='<p><input type="button" onclick=loadDoc() value="Submit"><br/>';
+}
+</script>
+</body>
+</html>
