@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "e3f938ef-f88c-4b22-980c-0b106415c037",
+		"name": "vmProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAvailable",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/vm/webapi/myVms/getAvailable",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vm",
+						"webapi",
+						"myVms",
+						"getAvailable"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchVm",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/vm/webapi/myVms/search?version=494",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vm",
+						"webapi",
+						"myVms",
+						"search"
+					],
+					"query": [
+						{
+							"key": "version",
+							"value": "494"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "requestVM",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "cloud",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"vmHostname\":\"ashu494b.csacloud.local\",\r\n\t\"requestor\":\"admin\",\r\n\t\"durationDays\":7\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/vm/webapi/request/vm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vm",
+						"webapi",
+						"request",
+						"vm"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
