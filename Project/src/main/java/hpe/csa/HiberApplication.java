@@ -96,11 +96,21 @@ public class HiberApplication {
 		vm2.setSubscription(new Subscription("Ashutosh491",helper.getSqlDateFromToday(0),helper.getSqlDateFromToday(4)));
 		VM vm3=new VM("ashu493.csacloud.local","493","administrator","csacpe@0!3",false);
 		VM vm4=new VM("ashu494.csacloud.local","494","administrator","csacpe@0!3",false);
+		VM vm5=new VM("ashu494b.csacloud.local","494","administrator","csacpe@0!3",false);
+		VM vm6=new VM("ashu494c.csacloud.local","494","administrator","csacpe@0!3",false);
+		VM vm7=new VM("ashu482.csacloud.local","482","administrator","csacpe@0!3",false);
+		VM vm8=new VM("ashu482b.csacloud.local","482","administrator","csacpe@0!3",false);
+		VM vm9=new VM("ashu482c.csacloud.local","482","administrator","csacpe@0!3",false);
 		
 		vms.add(vm);
 		vms.add(vm2);
 		vms.add(vm3);
 		vms.add(vm4);
+		vms.add(vm5);
+		vms.add(vm6);
+		vms.add(vm7);
+		vms.add(vm8);
+		vms.add(vm9);
 		
 		for(VM v:vms) {
 			VM res=addVM(v);
